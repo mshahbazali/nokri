@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1031540698025",
+    "project_id": "nokri-ebd47",
+    "storage_bucket": "nokri-ebd47.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1031540698025:android:9919fee81a0781994272b8",
+        "android_client_info": {
+          "package_name": "com.nokri"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1031540698025-o43l85fm9a5o2kbe6vv8g8gvs3a1mce2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBpocjRowtkPCiqCb-cdcAGvsIvtxPPZ4Y"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1031540698025-o43l85fm9a5o2kbe6vv8g8gvs3a1mce2.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
