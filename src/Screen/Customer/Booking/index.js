@@ -6,8 +6,6 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 import Header from '../../../Components/Header'
 import firestore from '@react-native-firebase/firestore';
 
-
-
 const wait = (timeout) => {
   return new Promise(resolve => setTimeout(resolve, timeout));
 }
