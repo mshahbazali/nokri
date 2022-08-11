@@ -1,15 +1,17 @@
 import { View, Text, StyleSheet, ScrollView, TouchableOpacity, Image, RefreshControl, Alert } from 'react-native'
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useContext } from 'react'
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import Header from '../../../Components/Header'
 import firestore from '@react-native-firebase/firestore';
+import { AuthContext } from '../../../Context';
 
 const wait = (timeout) => {
   return new Promise(resolve => setTimeout(resolve, timeout));
 }
 export default function Index() {
+  const { user } = useContext(AuthContext)
   const [refreshing, setRefreshing] = React.useState(false);
   const [totalBooking, setTotalBooking] = React.useState(0);
   const [totalAmount, setTotalAmount] = React.useState(0);
@@ -21,7 +23,7 @@ export default function Index() {
   const getData = async () => {
     await firestore()
       .collection('Order')
-      .where('providerId', '==', "mshahbazali821@gmail.com")
+      .where('providerId', '==', user.email)
       .get()
       .then(querySnapshot => {
         setData(querySnapshot._docs);
@@ -29,7 +31,7 @@ export default function Index() {
       });
     await firestore()
       .collection('Users')
-      .doc("mshahbazali821@gmail.com")
+      .doc(user.email)
       .get()
       .then(querySnapshot => {
         setTotalBooking(querySnapshot._data.totalBooking);
@@ -94,7 +96,7 @@ export default function Index() {
                               });
                             await firestore()
                               .collection('Users')
-                              .doc("mshahbazali821@gmail.com")
+                              .doc(user.email)
                               .update({
                                 totalBooking: totalBooking + 1,
                                 totalAmount: totalAmount + e?._data?.subTotal,

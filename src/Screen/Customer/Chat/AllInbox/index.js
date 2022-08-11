@@ -1,29 +1,62 @@
 import { View, Text, StyleSheet, ScrollView, TouchableOpacity, Image, TextInput } from 'react-native'
-import React from 'react'
+import React, { useEffect, useState, useContext } from 'react'
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import Feather from 'react-native-vector-icons/AntDesign';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import Header from '../../../../Components/Header'
+import firestore from '@react-native-firebase/firestore';
+import { AuthContext } from '../../../../Context';
+
 export default function Index({ navigation }) {
-  const CART = [1, 2,]
+  const { setChatId, user } = useContext(AuthContext)
+  const [allUser, setAllUser] = useState([])
+  const getData = async () => {
+    await firestore()
+      .collection('chat')
+      .where('sender', '==', user.email)
+      .limit(1)
+      .get()
+      .then(data => {
+        if (data._docs[0] !== undefined) {
+          setAllUser(data._docs)
+        }
+      })
+    await firestore()
+      .collection('chat')
+      .where('reciverId', '==', user.email)
+      .limit(1)
+      .get()
+      .then(data => {
+        if (data._docs[0] !== undefined) {
+          setAllUser(data._docs)
+        }
+      })
+
+  }
+  useEffect(() => {
+    getData()
+  }, [])
   return (
     <View style={styles.container}>
       <ScrollView>
         <Header title={"Inbox"} />
         <View style={styles.cartItemContainer}>
           {
-            CART.map((e, i) => {
+            allUser.map((e, i) => {
               return (
-                <TouchableOpacity style={styles.cartItemBox} key={i} onPress={() => navigation.navigate("Inbox")}>
+                <TouchableOpacity style={styles.cartItemBox} key={i} onPress={async () => {
+                  setChatId(e?._data?.reciverId)
+                  await navigation.navigate("Inbox")
+                }}>
                   <View>
                     <Feather name="user" size={30} color="#000" />
                   </View>
                   <View style={styles.itemNameContainer}>
-                    <Text style={styles.itemName}>Home Cleaner </Text>
+                    <Text style={styles.itemName}>{e?._data?.reciverName}</Text>
                   </View>
-                  <View style={styles.chatTeamBox}>
+                  {/* <View style={styles.chatTeamBox}>
                     <Text style={styles.chatTeam}>21 second ago</Text>
-                  </View>
+                  </View> */}
                 </TouchableOpacity>
               )
             })

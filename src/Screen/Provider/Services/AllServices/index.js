@@ -1,17 +1,19 @@
 import { View, Text, StyleSheet, ScrollView, TouchableOpacity, Image, RefreshControl, Alert } from 'react-native'
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState , useContext} from 'react'
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import Header from '../../../../Components/Header'
 import { useIsFocused } from '@react-navigation/native';
 import firestore from '@react-native-firebase/firestore';
+import { AuthContext } from '../../../../Context';
+
 const wait = (timeout) => {
     return new Promise(resolve => setTimeout(resolve, timeout));
 }
 export default function Index({ navigation }) {
     const [refreshing, setRefreshing] = React.useState(false);
-
+    const { user } = useContext(AuthContext)
     const onRefresh = React.useCallback(() => {
         setRefreshing(true);
         wait(2000).then(() => setRefreshing(false));
@@ -21,7 +23,7 @@ export default function Index({ navigation }) {
     const getData = async () => {
         firestore()
             .collection('Booking')
-            .where('creator', '==', "mshahbazali821@gmail.com")
+            .where('creator', '==', user.email)
             .get()
             .then(querySnapshot => {
                 setData(querySnapshot._docs)

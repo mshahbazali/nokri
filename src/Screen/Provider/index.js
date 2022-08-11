@@ -3,6 +3,7 @@ import Booking from './Booking'
 import Profile from './Profile'
 import MyWorkArea from './MyWorkArea'
 import Notification from './Notification'
+import UserProfile from './UserProfile'
 import { CreateService, AllServices } from './Services'
 
-export { Home, Booking, Profile, MyWorkArea, Notification, CreateService, AllServices }
+export { Home, Booking, Profile, MyWorkArea, Notification, CreateService, AllServices, UserProfile }

@@ -1,5 +1,5 @@
 import { View, Text, StyleSheet, ScrollView, RefreshControl, TouchableOpacity, Image, TextInput } from 'react-native'
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useEffect, useRef, useState, useContext } from 'react'
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
@@ -11,19 +11,25 @@ import RBSheet from "react-native-raw-bottom-sheet";
 import DatePicker from 'react-native-date-picker'
 import { useIsFocused } from '@react-navigation/native';
 import firestore from '@react-native-firebase/firestore';
+import { AuthContext } from '../../../Context';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const wait = (timeout) => {
   return new Promise(resolve => setTimeout(resolve, timeout));
 }
 export default function Index({ navigation }) {
+  const { setUserProfileId, setUser, user } = useContext(AuthContext)
+  const getUser = async () => {
+    const jsonValue = await AsyncStorage.getItem('user')
+    return jsonValue != null ? setUser(JSON.parse(jsonValue)) : null;
+  }
   const [refreshing, setRefreshing] = React.useState(false);
-
   const onRefresh = React.useCallback(() => {
     setRefreshing(true);
     wait(2000).then(() => setRefreshing(false));
   }, []);
+
   const focus = useIsFocused()
-  const categories = [1, 2, 3, 4, 5, 5, 6, 7]
   const [houseMaids, setHouseMaids] = useState([])
   const [kitchenStaff, setKitchenStaff] = useState([])
   const [seniorCitizen, setSeniorCitizen] = useState([])
@@ -49,7 +55,7 @@ export default function Index({ navigation }) {
       startTime: startDate,
       EndTime: endDate,
       quentity: quentity,
-      userEmail: "mshahbazali563@gmail.com",
+      userEmail: user?.email,
       userName: "Shahbaz Ali"
     }
     firestore()
@@ -106,8 +112,13 @@ export default function Index({ navigation }) {
       });
   }
   useEffect(() => {
+    getUser()
     getData()
   }, [refreshing])
+  useEffect(() => {
+    getUser()
+    getData()
+  }, [])
 
   return (
     <View style={styles.container}>
@@ -117,7 +128,7 @@ export default function Index({ navigation }) {
           onRefresh={onRefresh}
         />
       }>
-        <Header title={"North Karachi"} />
+        <Header title={"Nokri"} />
         <View style={styles.searchContainer}>
           <View style={styles.searchContainerBox}>
             <TextInput keyboardType='web-search' placeholder='Search...' placeholderTextColor={"#000"} style={styles.searchInput} />
@@ -466,7 +477,10 @@ export default function Index({ navigation }) {
                 </View>
               </View>
               <View style={styles.cartBtnContainer}>
-                <TouchableOpacity style={styles.providerBtn}>
+                <TouchableOpacity style={styles.providerBtn} onPress={async () => {
+                  setUserProfileId(sheetData.creator);
+                  await navigation.navigate("UserProfile")
+                }}>
                   <Text style={styles.providerBtnText}>Provider</Text>
                 </TouchableOpacity>
                 <TouchableOpacity style={styles.addToCartBtn} onPress={addtocart}>

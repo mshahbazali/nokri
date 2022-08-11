@@ -1,13 +1,15 @@
 import { View, StyleSheet, ScrollView, Image, Platform, TouchableOpacity, TextInput, Text, Alert } from 'react-native'
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
 import Fontisto from 'react-native-vector-icons/Fontisto';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import RadioButtonRN from 'radio-buttons-react-native';
 import firestore from '@react-native-firebase/firestore';
 import { launchImageLibrary } from 'react-native-image-picker';
 import storage from '@react-native-firebase/storage';
+import { AuthContext } from '../../../../Context';
 
 export default function Index({ navigation }) {
+    const { user } = useContext(AuthContext)
     const [name, setName] = useState(undefined)
     const [discription, setDiscription] = useState(undefined)
     const [charges, setCharges] = useState(undefined)
@@ -36,7 +38,7 @@ export default function Index({ navigation }) {
             category,
             image,
             priceUnit,
-            creator: "mshahbazali821@gmail.com"
+            creator: user.email
         }
         if (name == undefined) {
             Alert.alert("Missing", "Enter Service Name")

@@ -1,17 +1,19 @@
 import { View, Text, StyleSheet, ScrollView, TouchableOpacity, Image, RefreshControl } from 'react-native'
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useContext } from 'react'
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import Entypo from 'react-native-vector-icons/Entypo';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import Header from '../../../Components/Header'
 import firestore from '@react-native-firebase/firestore';
-
+import { AuthContext } from '../../../Context';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 const wait = (timeout) => {
   return new Promise(resolve => setTimeout(resolve, timeout));
 }
 export default function Index({ navigation }) {
   const [refreshing, setRefreshing] = React.useState(false);
-  const categories = [1, 2, 3, 4, 5, 5, 6, 7]
+  const { user, setUser } = useContext(AuthContext)
+
   const onRefresh = React.useCallback(() => {
     setRefreshing(true);
     wait(2000).then(() => setRefreshing(false));
@@ -20,9 +22,11 @@ export default function Index({ navigation }) {
   const [totalBooking, setTotalBooking] = useState(0)
   const [data, setData] = useState([])
   const getData = async () => {
+    const jsonValue = await AsyncStorage.getItem('user')
+    jsonValue != null ? setUser(JSON.parse(jsonValue)) : null
     await firestore()
       .collection('Users')
-      .doc("mshahbazali821@gmail.com")
+      .doc(user.email)
       .get()
       .then(querySnapshot => {
         setTotalBooking(querySnapshot._data.totalBooking);
@@ -31,7 +35,7 @@ export default function Index({ navigation }) {
     await firestore()
       .collection('Order')
       // Filter results
-      .where('providerId', '==', "mshahbazali821@gmail.com", '&&', 'status', '==', 'Accepted')
+      .where('providerId', '==', user?.email, '&&', 'status', '==', 'Accepted')
       .limit(10)
       .get()
       .then(querySnapshot => {

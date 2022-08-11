@@ -5,11 +5,13 @@ import AntDesign from 'react-native-vector-icons/AntDesign';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import Header from '../../../Components/Header'
 import firestore from '@react-native-firebase/firestore';
+import { AuthContext } from '../../../Context';
 
 const wait = (timeout) => {
   return new Promise(resolve => setTimeout(resolve, timeout));
 }
 export default function Index() {
+  const { user } = useContext(AuthContext)
   const [refreshing, setRefreshing] = React.useState(false);
   const onRefresh = React.useCallback(() => {
     setRefreshing(true);
@@ -19,7 +21,7 @@ export default function Index() {
   const getData = async () => {
     await firestore()
       .collection('Order')
-      .where('customerId', '==', "mshahbazali563@gmail.com")
+      .where('customerId', '==', user.email)
       .get()
       .then(querySnapshot => {
         setData(querySnapshot._docs);

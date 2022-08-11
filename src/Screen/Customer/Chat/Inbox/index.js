@@ -1,57 +1,65 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import { Text, View, StyleSheet, Image, ScrollView, ImageBackground, TouchableOpacity, FlatList, TextInput } from "react-native"
 import Entypo from 'react-native-vector-icons/Entypo';
 import Foundation from 'react-native-vector-icons/Foundation';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import Header from '../../../../Components/Header'
-
+import firestore from '@react-native-firebase/firestore';
+import { AuthContext } from "../../../../Context";
 
 const Chatting = () => {
+  const { chatId , user} = useContext(AuthContext)
+  const [name, setName] = useState()
+  const [message, setMessage] = useState()
+  const [allMessage, setAllMessage] = useState([])
+  const getData = async () => {
+    await firestore()
+      .collection('Users')
+      .doc(chatId)
+      .get()
+      .then(user => {
+        setName(`${user._data.firstName} ${user._data.lastName}`);
+      });
+    await firestore()
+      .collection('chat')
+      .where('reciverId', '==', chatId)
+      .get()
+      .then(data => {
+        setAllMessage(data._docs)
+      })
 
+  }
+  useEffect(() => {
+    getData()
+  }, [])
+  const sendMessage = async () => {
 
-  const Activity = [
-    {
-      id: 1,
-      img: 'https://t4.ftcdn.net/jpg/02/45/28/17/360_F_245281721_2uYVgLSFnaH9AlZ1WWpkZavIcEEGBU84.jpg',
-      msg: 'Hey when`s the next meeting',
-      time: 'Yesterday, 9:45 AM',
-      user_id: 1,
-    },
-    {
-      id: 2,
-      img: 'https://thumbs.dreamstime.com/b/businessman-icon-image-male-avatar-profile-vector-glasses-beard-hairstyle-179728610.jpg',
-      msg: 'Wednesday, next okay',
-      user_id: 2,
+    await firestore()
+      .collection('chat')
+      .add({
+        sender: user.email,
+        reciverId: chatId,
+        message: message,
+        reciverName: name
+      }).then(async () => {
+        setMessage('')
+        await firestore()
+          .collection('chat')
+          .where('reciverId', '==', chatId)
+          .get()
+          .then(data => {
+            setAllMessage(data._docs.reverse())
+          })
 
-    },
-    {
-      id: 3,
-      img: 'https://t4.ftcdn.net/jpg/02/45/28/17/360_F_245281721_2uYVgLSFnaH9AlZ1WWpkZavIcEEGBU84.jpg',
-      msg: 'Sounds perfect. I have to go through a few things, them I am ready.',
-      user_id: 2,
-    },
-    {
-      id: 4,
-      img: 'https://t4.ftcdn.net/jpg/02/45/28/17/360_F_245281721_2uYVgLSFnaH9AlZ1WWpkZavIcEEGBU84.jpg',
-      msg: 'Sounds perfect. I have to go through a few things, them I am ready.',
-      user_id: 1,
-    },
-    {
-      id: 5,
-      img: 'https://t4.ftcdn.net/jpg/02/45/28/17/360_F_245281721_2uYVgLSFnaH9AlZ1WWpkZavIcEEGBU84.jpg',
-      msg: 'Sounds perfect. I have to go through a few things, them I am ready.',
-      time: 'Yesterday, 9:45 AM',
-      img2: 'https://images.unsplash.com/photo-1557683316-973673baf926?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8OHx8fGVufDB8fHx8&w=1000&q=80',
-      user_id: 2,
-    },
+      })
 
-  ]
+  }
 
 
   return (
     <View style={{ ...styles.Mainview, }}>
-      <Header title={"Shahbaz Ali"} />
+      <Header title={name} />
       <View style={{
         flex: 1,
         flexDirection: 'column',
@@ -59,13 +67,14 @@ const Chatting = () => {
       }}>
 
         <ScrollView>
-          {Activity.map((item, index) => {
+          {allMessage.map((item, index) => {
+            console.log(item)
             return (
-              <View key={item.id}>
-                {item.time && <Text style={{ fontSize: 14, textAlign: 'center', marginTop: 20, color: '#0c6ff0' }}>{item.time}</Text>}
+              <View key={index}>
+                {/* {item.time && <Text style={{ fontSize: 14, textAlign: 'center', marginTop: 20, color: '#0c6ff0' }}>{item.time}</Text>} */}
                 <>
-                  <View style={{ flexDirection: 'row', justifyContent: item.user_id === 1 ? 'flex-end' : 'flex-start', alignItems: 'center', marginTop: 30, marginHorizontal: 10 }}>
-                    <Text style={{ maxWidth: '70%', fontSize: 16, backgroundColor: item.user_id === 1 ? '#0c6ff0' : '#dbdbdb', color: item.user_id === 1 ? '#fff' : '#000', padding: 8, paddingVertical: 10 }}>{item.msg}</Text>
+                  <View style={{ flexDirection: 'row', justifyContent: item._data.sender === user.email ? 'flex-end' : 'flex-start', alignItems: 'center', marginTop: 30, marginHorizontal: 10 }}>
+                    <Text style={{ maxWidth: '70%', fontSize: 16, backgroundColor: item._data.sender === user.email ? '#0c6ff0' : '#dbdbdb', color: item._data.sender ===user.email ? '#fff' : '#000', padding: 8, paddingVertical: 10 }}>{item._data.message}</Text>
                   </View>
                 </>
               </View>
@@ -76,8 +85,8 @@ const Chatting = () => {
       </View>
       <View style={styles.searchContainer}>
         <View style={styles.searchContainerBox}>
-          <TextInput keyboardType='text' placeholder='Type message...' placeholderTextColor={"#000"} style={styles.searchInput} />
-          <TouchableOpacity style={styles.cartDetailBtn}>
+          <TextInput value={message} onChangeText={(text) => setMessage(text)} keyboardType='text' placeholder='Type message...' placeholderTextColor={"#000"} style={styles.searchInput} />
+          <TouchableOpacity style={styles.cartDetailBtn} onPress={sendMessage}>
             <Text style={styles.cartDetailBtnText}>Send</Text>
           </TouchableOpacity>
         </View>

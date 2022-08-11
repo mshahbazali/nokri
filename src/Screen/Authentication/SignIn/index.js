@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import auth from '@react-native-firebase/auth';
 import firestore from '@react-native-firebase/firestore';
-
+import AsyncStorage from '@react-native-async-storage/async-storage';
 export default function Index({ navigation }) {
     const [focusInputFour, setFocusInputFourFocus] = useState(false)
     const [focusInputSeven, setFocusInputSevenFocus] = useState(false)
@@ -30,16 +30,17 @@ export default function Index({ navigation }) {
             .signInWithEmailAndPassword(userData.email, userData.password)
             .then(async () => {
                 const user = await firestore().collection('Users').doc(userData.email).get();
+                const jsonValue = await JSON.stringify(user._data)
+                await AsyncStorage.setItem('user', jsonValue)
                 if (user._data.userType == "Customer") {
-                    navigation.navigate("BottomCustomer")
+                    await navigation.navigate("BottomCustomer")
                 }
                 else {
-                    navigation.navigate("BottomProvider")
+                    await navigation.navigate("BottomProvider")
                 }
             })
             .catch(error => {
                 if (error.code === 'auth/operation-not-allowed') {
-                    console.log('Enable anonymous in your firebase console.');
                 }
 
                 console.error(error);
@@ -81,7 +82,7 @@ export default function Index({ navigation }) {
                             email === undefined ? setEmailError(true) : null
                             password === undefined ? setPasswordError(true) : null
                             email === undefined || password == undefined ? null : signInUser()
-                        }} style={{ backgroundColor: email === undefined || password === undefined ? "#0c6ff0" : "#175676", paddingVertical: 10, borderRadius: 10 }}>
+                        }} style={{ backgroundColor: "#0c6ff0", paddingVertical: 10, borderRadius: 10 }}>
                             <Text style={{ textAlign: 'center', color: "#fff", fontSize: 22, fontWeight: '400' }}>SIGN IN</Text>
                         </TouchableOpacity>
                     </View>

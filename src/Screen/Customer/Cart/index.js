@@ -5,13 +5,14 @@ import AntDesign from 'react-native-vector-icons/AntDesign';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import Header from '../../../Components/Header'
 import firestore from '@react-native-firebase/firestore';
+import { AuthContext } from '../../../Context';
 
 const wait = (timeout) => {
   return new Promise(resolve => setTimeout(resolve, timeout));
 }
 export default function Index({ navigation }) {
   const [refreshing, setRefreshing] = React.useState(false);
-
+  const { user } = useContext(AuthContext)
   const onRefresh = React.useCallback(() => {
     setRefreshing(true);
     wait(2000).then(() => setRefreshing(false));
@@ -22,7 +23,7 @@ export default function Index({ navigation }) {
   const getData = async () => {
     await firestore()
       .collection('AddToCart')
-      .where('userEmail', '==', "mshahbazali563@gmail.com")
+      .where('userEmail', '==', user.email)
       .get()
       .then(querySnapshot => {
         setCartData(querySnapshot._docs);
@@ -33,7 +34,7 @@ export default function Index({ navigation }) {
       item: cartData,
       subTotal: subTotal,
       providerId: "mshahbazali821@gmail.com",
-      customerId: "mshahbazali563@gmail.com",
+      customerId: user.email,
       customerName: "Shahbaz Ali",
       status: "Pending"
     }
@@ -110,7 +111,6 @@ export default function Index({ navigation }) {
                         <TouchableOpacity style={styles.itemQuentityPlus} onPress={async () => {
                           setRefreshing(true)
                           setQuentity(e?._data?.quentity)
-
                           await setQuentity(quentity + 1)
                           await firestore()
                             .collection('AddToCart')
@@ -140,6 +140,22 @@ export default function Index({ navigation }) {
             </View>
             <View>
               <Text style={styles.cartDetailPriceText}>{`${subTotal} PKR`}</Text>
+            </View>
+          </View>
+
+
+          <View style={{ marginVertical: 20, }}>
+            <View>
+              <Text style={{ fontSize: 20, fontWeight: '600', color: '#000', marginVertical: 20 }}>
+                Card Detail
+              </Text>
+              <View>
+                <TextInput keyboardType='numeric' placeholder='Card Number' placeholderTextColor={"#000"} style={{ borderBottomColor: 'grey', borderBottomWidth: 1.4 }} />
+              </View>
+              <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'center', marginTop: 10 }}>
+                <TextInput keyboardType='numeric' placeholder='Expire Date' placeholderTextColor={"#000"} style={{ borderBottomColor: 'grey', borderBottomWidth: 1.4, width: '70%' }} />
+                <TextInput keyboardType='numeric' placeholder='CVC' placeholderTextColor={"#000"} style={{ borderBottomColor: 'grey', borderBottomWidth: 1.4, width: '25%', marginLeft: 10 }} />
+              </View>
             </View>
           </View>
           <View style={styles.cartDetailBtnContainer}>
