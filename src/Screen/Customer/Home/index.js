@@ -18,7 +18,7 @@ const wait = (timeout) => {
   return new Promise(resolve => setTimeout(resolve, timeout));
 }
 export default function Index({ navigation }) {
-  const { setUserProfileId, setUser, user } = useContext(AuthContext)
+  const { setUserProfileId, setUser, user, providerId } = useContext(AuthContext)
   const getUser = async () => {
     const jsonValue = await AsyncStorage.getItem('user')
     return jsonValue != null ? setUser(JSON.parse(jsonValue)) : null;
@@ -65,7 +65,6 @@ export default function Index({ navigation }) {
         await navigation.navigate("CartCustomer")
       });
   }
-  // console.log(sheetData);
 
   const getData = async () => {
     await firestore()
@@ -483,7 +482,10 @@ export default function Index({ navigation }) {
                 }}>
                   <Text style={styles.providerBtnText}>Provider</Text>
                 </TouchableOpacity>
-                <TouchableOpacity style={styles.addToCartBtn} onPress={addtocart}>
+                <TouchableOpacity style={styles.addToCartBtn} onPress={async () => {
+                  setProviderId(sheetData.creator)
+                  await addtocart()
+                }}>
                   <Text style={styles.addToCartBtnText}>Add to cart</Text>
                 </TouchableOpacity>
               </View>

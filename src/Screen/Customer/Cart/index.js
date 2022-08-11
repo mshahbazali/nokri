@@ -12,7 +12,7 @@ const wait = (timeout) => {
 }
 export default function Index({ navigation }) {
   const [refreshing, setRefreshing] = React.useState(false);
-  const { user } = useContext(AuthContext)
+  const { user, providerId } = useContext(AuthContext)
   const onRefresh = React.useCallback(() => {
     setRefreshing(true);
     wait(2000).then(() => setRefreshing(false));
@@ -33,7 +33,7 @@ export default function Index({ navigation }) {
     const data = {
       item: cartData,
       subTotal: subTotal,
-      providerId: "mshahbazali821@gmail.com",
+      providerId: providerId,
       customerId: user.email,
       customerName: "Shahbaz Ali",
       status: "Pending"

@@ -43,7 +43,6 @@ export default function Index({ navigation }) {
                 if (error.code === 'auth/operation-not-allowed') {
                 }
 
-                console.error(error);
             });
     }
     return (

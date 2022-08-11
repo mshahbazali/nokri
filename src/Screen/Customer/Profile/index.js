@@ -10,6 +10,7 @@ import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import { launchImageLibrary } from 'react-native-image-picker';
 import { AuthContext } from '../../../Context';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import RNRestart from 'react-native-restart'; // Import package from node modules
 
 export default function Index({ navigation }) {
   const { user } = useContext(AuthContext)
@@ -59,7 +60,7 @@ export default function Index({ navigation }) {
       .then(async () => {
         Alert.alert("Updated", "Profile Detail Updated")
         await navigation.navigate("HomeProvider")
-      }).catch((err) => console.log(err))
+      })
 
 
   }
@@ -111,8 +112,8 @@ export default function Index({ navigation }) {
           </View>
           <View style={styles.signOutContainer}>
             <TouchableOpacity style={styles.signOutBtn} onPress={async () => {
-              AsyncStorage.removeItem("user").then(() => {
-                navigation.navigate("Authentication")
+              AsyncStorage.removeItem("user").then(async () => {
+                await RNRestart.Restart()
               })
             }}>
               <Text style={styles.cartDetailBtnText}>Sign Out </Text>

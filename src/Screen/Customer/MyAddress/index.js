@@ -9,7 +9,7 @@ export default function Index() {
   const CART = [1, 2,]
   return (
     <View style={styles.container}>
-      <TouchableOpacity style={styles.fixedBtn} onPress={() => console.log("ok")}>
+      <TouchableOpacity style={styles.fixedBtn}>
         <AntDesign name="plus" size={30} color="#fff" />
       </TouchableOpacity>
       <ScrollView>

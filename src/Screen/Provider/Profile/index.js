@@ -59,7 +59,7 @@ export default function Index({ navigation }) {
       .then(async () => {
         Alert.alert("Updated", "Profile Detail Updated")
         await navigation.navigate("HomeProvider")
-      }).catch((err) => console.log(err))
+      }).catch()
 
 
   }
@@ -111,8 +111,8 @@ export default function Index({ navigation }) {
           </View>
           <View style={styles.signOutContainer}>
             <TouchableOpacity style={styles.signOutBtn} onPress={async () => {
-              AsyncStorage.removeItem("user").then(() => {
-                navigation.navigate("Authentication")
+              AsyncStorage.removeItem("user").then(async () => {
+                await RNRestart.Restart()
               })
             }}>
               <Text style={styles.cartDetailBtnText}>Sign Out </Text>

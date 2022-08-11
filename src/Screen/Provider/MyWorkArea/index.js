@@ -84,7 +84,6 @@ export default function Index() {
                     await Geocoder.from(e.nativeEvent.coordinate.latitude, e.nativeEvent.coordinate.longitude)
                       .then(json => {
                         var addressComponent = json.results[0].address_components[0];
-                        console.log(addressComponent);
                       })
                       .catch(error => console.warn(error));
                   }}

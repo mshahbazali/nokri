@@ -68,7 +68,6 @@ const Chatting = () => {
 
         <ScrollView>
           {allMessage.map((item, index) => {
-            console.log(item)
             return (
               <View key={index}>
                 {/* {item.time && <Text style={{ fontSize: 14, textAlign: 'center', marginTop: 20, color: '#0c6ff0' }}>{item.time}</Text>} */}

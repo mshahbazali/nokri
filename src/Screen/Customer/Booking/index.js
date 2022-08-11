@@ -25,7 +25,6 @@ export default function Index() {
       .get()
       .then(querySnapshot => {
         setData(querySnapshot._docs);
-        console.log(querySnapshot._docs);
       });
   }
   useEffect(() => {

@@ -4,6 +4,7 @@ export const AuthProvider = props => {
     const [userProfileId, setUserProfileId] = useState();
     const [chatId, setChatId] = useState();
     const [user, setUser] = useState();
+    const [providerId, setProviderId] = useState();
     return (
         <AuthContext.Provider
             value={{
@@ -12,7 +13,9 @@ export const AuthProvider = props => {
                 chatId,
                 setChatId,
                 user,
-                setUser
+                setUser,
+                providerId,
+                setProviderId
             }}>
             {props.children}
         </AuthContext.Provider>
