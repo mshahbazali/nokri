@@ -26,17 +26,21 @@ export default function App() {
     splash == false ?
       <Splash /> :
       <AuthProvider>
-        <NavigationContainer>
-          {
-            user == false ?
+        {
+          user == false ?
+            <NavigationContainer>
               <Authentication />
-              :
-              user.userType == "Customer" ?
+            </NavigationContainer>
+            :
+            user.userType == "Customer" ?
+              <NavigationContainer>
                 <BottomCustomer />
-                :
+              </NavigationContainer>
+              :
+              <NavigationContainer>
                 <BottomProvider />
-          }
-        </NavigationContainer>
+              </NavigationContainer>
+        }
       </AuthProvider>
 
   )

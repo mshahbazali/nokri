@@ -56,7 +56,7 @@ export default function Index({ navigation }) {
       EndTime: endDate,
       quentity: quentity,
       userEmail: user?.email,
-      userName: "Shahbaz Ali"
+      userName: `${user?.firstName} ${user?.lastName}`
     }
     firestore()
       .collection('AddToCart')

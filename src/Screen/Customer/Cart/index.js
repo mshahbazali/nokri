@@ -35,7 +35,7 @@ export default function Index({ navigation }) {
       subTotal: subTotal,
       providerId: providerId,
       customerId: user.email,
-      customerName: "Shahbaz Ali",
+      customerName: `${user?.firstName} ${user?.lastName}`,
       status: "Pending"
     }
     await firestore()

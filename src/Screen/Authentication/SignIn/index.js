@@ -21,12 +21,12 @@ export default function Index({ navigation }) {
             setEmail(text)
         }
     };
-    const signInUser = () => {
+    const signInUser = async () => {
         const userData = {
             email: email,
             password: password
         }
-        auth()
+         auth()
             .signInWithEmailAndPassword(userData.email, userData.password)
             .then(async () => {
                 const user = await firestore().collection('Users').doc(userData.email).get();

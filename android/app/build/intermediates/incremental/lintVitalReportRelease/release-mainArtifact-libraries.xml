@@ -1,9 +1,9 @@
 <libraries>
   <library
-      name="E:\Github\nokri\android@@:react-native-vector-icons::release"
-      jars="E:\Github\nokri\node_modules\react-native-vector-icons\android\build\.transforms\04fa036cb78a474f7fa891a5d8d68672\transformed\out\jars\classes.jar"
+      name="E:\Application Development\nokri\android@@:react-native-vector-icons::release"
+      jars="E:\Application Development\nokri\node_modules\react-native-vector-icons\android\build\.transforms\48437eb4f567b4e9622f43e93113664a\transformed\out\jars\classes.jar"
       resolved="nokri:react-native-vector-icons:unspecified"
-      folder="E:\Github\nokri\node_modules\react-native-vector-icons\android\build\.transforms\04fa036cb78a474f7fa891a5d8d68672\transformed\out"
+      folder="E:\Application Development\nokri\node_modules\react-native-vector-icons\android\build\.transforms\48437eb4f567b4e9622f43e93113664a\transformed\out"
       manifest="AndroidManifest.xml"
       resFolder="res"
       assetsFolder="assets"
@@ -13,10 +13,10 @@
       externalAnnotations="annotations.zip"
       proguardRules="proguard.txt"/>
   <library
-      name="E:\Github\nokri\android@@:react-native-restart::release"
-      jars="E:\Github\nokri\node_modules\react-native-restart\android\build\.transforms\6c4721caed3fccfb9d04867263e2faca\transformed\out\jars\classes.jar"
+      name="E:\Application Development\nokri\android@@:react-native-restart::release"
+      jars="E:\Application Development\nokri\node_modules\react-native-restart\android\build\.transforms\dacc7418f9aa8c9d836c53ce298522f5\transformed\out\jars\classes.jar"
       resolved="nokri:react-native-restart:unspecified"
-      folder="E:\Github\nokri\node_modules\react-native-restart\android\build\.transforms\6c4721caed3fccfb9d04867263e2faca\transformed\out"
+      folder="E:\Application Development\nokri\node_modules\react-native-restart\android\build\.transforms\dacc7418f9aa8c9d836c53ce298522f5\transformed\out"
       manifest="AndroidManifest.xml"
       resFolder="res"
       assetsFolder="assets"
@@ -26,10 +26,10 @@
       externalAnnotations="annotations.zip"
       proguardRules="proguard.txt"/>
   <library
-      name="E:\Github\nokri\android@@:react-native-firebase_auth::release"
-      jars="E:\Github\nokri\node_modules\@react-native-firebase\auth\android\build\.transforms\6ca3a0344de1977b5f72bf89b84aec04\transformed\out\jars\classes.jar"
+      name="E:\Application Development\nokri\android@@:react-native-firebase_auth::release"
+      jars="E:\Application Development\nokri\node_modules\@react-native-firebase\auth\android\build\.transforms\cd8ddbfc9b2b0d8e85bc2184cc31e16c\transformed\out\jars\classes.jar"
       resolved="nokri:react-native-firebase_auth:unspecified"
-      folder="E:\Github\nokri\node_modules\@react-native-firebase\auth\android\build\.transforms\6ca3a0344de1977b5f72bf89b84aec04\transformed\out"
+      folder="E:\Application Development\nokri\node_modules\@react-native-firebase\auth\android\build\.transforms\cd8ddbfc9b2b0d8e85bc2184cc31e16c\transformed\out"
       manifest="AndroidManifest.xml"
       resFolder="res"
       assetsFolder="assets"
@@ -39,10 +39,10 @@
       externalAnnotations="annotations.zip"
       proguardRules="proguard.txt"/>
   <library
-      name="E:\Github\nokri\android@@:react-native-firebase_database::release"
-      jars="E:\Github\nokri\node_modules\@react-native-firebase\database\android\build\.transforms\a122447eb3369e63e0c2e5b940261df6\transformed\out\jars\classes.jar"
+      name="E:\Application Development\nokri\android@@:react-native-firebase_database::release"
+      jars="E:\Application Development\nokri\node_modules\@react-native-firebase\database\android\build\.transforms\79a13e061c1148cd165770929dda4794\transformed\out\jars\classes.jar"
       resolved="nokri:react-native-firebase_database:unspecified"
-      folder="E:\Github\nokri\node_modules\@react-native-firebase\database\android\build\.transforms\a122447eb3369e63e0c2e5b940261df6\transformed\out"
+      folder="E:\Application Development\nokri\node_modules\@react-native-firebase\database\android\build\.transforms\79a13e061c1148cd165770929dda4794\transformed\out"
       manifest="AndroidManifest.xml"
       resFolder="res"
       assetsFolder="assets"
@@ -52,10 +52,10 @@
       externalAnnotations="annotations.zip"
       proguardRules="proguard.txt"/>
   <library
-      name="E:\Github\nokri\android@@:react-native-firebase_firestore::release"
-      jars="E:\Github\nokri\node_modules\@react-native-firebase\firestore\android\build\.transforms\5e4c4d87b5d7a99102bd603dab66dc5f\transformed\out\jars\classes.jar"
+      name="E:\Application Development\nokri\android@@:react-native-firebase_firestore::release"
+      jars="E:\Application Development\nokri\node_modules\@react-native-firebase\firestore\android\build\.transforms\def2d813daf9a060c55e4fda2078ef88\transformed\out\jars\classes.jar"
       resolved="nokri:react-native-firebase_firestore:unspecified"
-      folder="E:\Github\nokri\node_modules\@react-native-firebase\firestore\android\build\.transforms\5e4c4d87b5d7a99102bd603dab66dc5f\transformed\out"
+      folder="E:\Application Development\nokri\node_modules\@react-native-firebase\firestore\android\build\.transforms\def2d813daf9a060c55e4fda2078ef88\transformed\out"
       manifest="AndroidManifest.xml"
       resFolder="res"
       assetsFolder="assets"
@@ -65,10 +65,10 @@
       externalAnnotations="annotations.zip"
       proguardRules="proguard.txt"/>
   <library
-      name="E:\Github\nokri\android@@:react-native-firebase_storage::release"
-      jars="E:\Github\nokri\node_modules\@react-native-firebase\storage\android\build\.transforms\9979f9f5cfc43ce189adb04c39fdf76d\transformed\out\jars\classes.jar"
+      name="E:\Application Development\nokri\android@@:react-native-firebase_storage::release"
+      jars="E:\Application Development\nokri\node_modules\@react-native-firebase\storage\android\build\.transforms\632887f5a22a85d78205ed6772ff1f57\transformed\out\jars\classes.jar"
       resolved="nokri:react-native-firebase_storage:unspecified"
-      folder="E:\Github\nokri\node_modules\@react-native-firebase\storage\android\build\.transforms\9979f9f5cfc43ce189adb04c39fdf76d\transformed\out"
+      folder="E:\Application Development\nokri\node_modules\@react-native-firebase\storage\android\build\.transforms\632887f5a22a85d78205ed6772ff1f57\transformed\out"
       manifest="AndroidManifest.xml"
       resFolder="res"
       assetsFolder="assets"
@@ -78,10 +78,10 @@
       externalAnnotations="annotations.zip"
       proguardRules="proguard.txt"/>
   <library
-      name="E:\Github\nokri\android@@:react-native-firebase_app::release"
-      jars="E:\Github\nokri\node_modules\@react-native-firebase\app\android\build\.transforms\b15c76111aaf50db5f6b037700e7ff74\transformed\out\jars\classes.jar"
+      name="E:\Application Development\nokri\android@@:react-native-firebase_app::release"
+      jars="E:\Application Development\nokri\node_modules\@react-native-firebase\app\android\build\.transforms\28cde255b07a5f3b62c7dee98ba1c096\transformed\out\jars\classes.jar"
       resolved="nokri:react-native-firebase_app:unspecified"
-      folder="E:\Github\nokri\node_modules\@react-native-firebase\app\android\build\.transforms\b15c76111aaf50db5f6b037700e7ff74\transformed\out"
+      folder="E:\Application Development\nokri\node_modules\@react-native-firebase\app\android\build\.transforms\28cde255b07a5f3b62c7dee98ba1c096\transformed\out"
       manifest="AndroidManifest.xml"
       resFolder="res"
       assetsFolder="assets"
@@ -130,10 +130,10 @@
       externalAnnotations="annotations.zip"
       proguardRules="proguard.txt"/>
   <library
-      name="E:\Github\nokri\android@@:react-native-async-storage_async-storage::release"
-      jars="E:\Github\nokri\node_modules\@react-native-async-storage\async-storage\android\build\.transforms\9cee3ef27691c00ccbfa2378e9db18c5\transformed\out\jars\classes.jar"
+      name="E:\Application Development\nokri\android@@:react-native-async-storage_async-storage::release"
+      jars="E:\Application Development\nokri\node_modules\@react-native-async-storage\async-storage\android\build\.transforms\6adc5e7ee4455fe82cea9f6e8c3437e8\transformed\out\jars\classes.jar"
       resolved="nokri:react-native-async-storage_async-storage:unspecified"
-      folder="E:\Github\nokri\node_modules\@react-native-async-storage\async-storage\android\build\.transforms\9cee3ef27691c00ccbfa2378e9db18c5\transformed\out"
+      folder="E:\Application Development\nokri\node_modules\@react-native-async-storage\async-storage\android\build\.transforms\6adc5e7ee4455fe82cea9f6e8c3437e8\transformed\out"
       manifest="AndroidManifest.xml"
       resFolder="res"
       assetsFolder="assets"
@@ -143,10 +143,10 @@
       externalAnnotations="annotations.zip"
       proguardRules="proguard.txt"/>
   <library
-      name="E:\Github\nokri\android@@:react-native-date-picker::release"
-      jars="E:\Github\nokri\node_modules\react-native-date-picker\android\build\.transforms\2a479f90fb5f85bfcf711533db0867ee\transformed\out\jars\classes.jar"
+      name="E:\Application Development\nokri\android@@:react-native-date-picker::release"
+      jars="E:\Application Development\nokri\node_modules\react-native-date-picker\android\build\.transforms\7d1690cf9fb213e1857c3522b703c911\transformed\out\jars\classes.jar"
       resolved="nokri:react-native-date-picker:unspecified"
-      folder="E:\Github\nokri\node_modules\react-native-date-picker\android\build\.transforms\2a479f90fb5f85bfcf711533db0867ee\transformed\out"
+      folder="E:\Application Development\nokri\node_modules\react-native-date-picker\android\build\.transforms\7d1690cf9fb213e1857c3522b703c911\transformed\out"
       manifest="AndroidManifest.xml"
       resFolder="res"
       assetsFolder="assets"
@@ -156,10 +156,10 @@
       externalAnnotations="annotations.zip"
       proguardRules="proguard.txt"/>
   <library
-      name="E:\Github\nokri\android@@:react-native-geolocation-service::release"
-      jars="E:\Github\nokri\node_modules\react-native-geolocation-service\android\build\.transforms\bb149aa5a2d37979ae260542fa2806c9\transformed\out\jars\classes.jar"
+      name="E:\Application Development\nokri\android@@:react-native-geolocation-service::release"
+      jars="E:\Application Development\nokri\node_modules\react-native-geolocation-service\android\build\.transforms\0d46cd2ee09c446b1382d81e4915b1c2\transformed\out\jars\classes.jar"
       resolved="nokri:react-native-geolocation-service:unspecified"
-      folder="E:\Github\nokri\node_modules\react-native-geolocation-service\android\build\.transforms\bb149aa5a2d37979ae260542fa2806c9\transformed\out"
+      folder="E:\Application Development\nokri\node_modules\react-native-geolocation-service\android\build\.transforms\0d46cd2ee09c446b1382d81e4915b1c2\transformed\out"
       manifest="AndroidManifest.xml"
       resFolder="res"
       assetsFolder="assets"
@@ -169,10 +169,10 @@
       externalAnnotations="annotations.zip"
       proguardRules="proguard.txt"/>
   <library
-      name="E:\Github\nokri\android@@:react-native-image-picker::release"
-      jars="E:\Github\nokri\node_modules\react-native-image-picker\android\build\.transforms\27f540dabcea8c2932eb900dbcfea462\transformed\out\jars\classes.jar"
+      name="E:\Application Development\nokri\android@@:react-native-image-picker::release"
+      jars="E:\Application Development\nokri\node_modules\react-native-image-picker\android\build\.transforms\d5301d09d2f047a3f4352f81bfb44cd3\transformed\out\jars\classes.jar"
       resolved="nokri:react-native-image-picker:unspecified"
-      folder="E:\Github\nokri\node_modules\react-native-image-picker\android\build\.transforms\27f540dabcea8c2932eb900dbcfea462\transformed\out"
+      folder="E:\Application Development\nokri\node_modules\react-native-image-picker\android\build\.transforms\d5301d09d2f047a3f4352f81bfb44cd3\transformed\out"
       manifest="AndroidManifest.xml"
       resFolder="res"
       assetsFolder="assets"
@@ -182,10 +182,10 @@
       externalAnnotations="annotations.zip"
       proguardRules="proguard.txt"/>
   <library
-      name="E:\Github\nokri\android@@:react-native-maps::release"
-      jars="E:\Github\nokri\node_modules\react-native-maps\android\build\.transforms\3bb1df8883837408f15056a456bddb29\transformed\out\jars\classes.jar"
+      name="E:\Application Development\nokri\android@@:react-native-maps::release"
+      jars="E:\Application Development\nokri\node_modules\react-native-maps\android\build\.transforms\fec479ed3f70c2a01d87cbd292bec43b\transformed\out\jars\classes.jar"
       resolved="nokri:react-native-maps:unspecified"
-      folder="E:\Github\nokri\node_modules\react-native-maps\android\build\.transforms\3bb1df8883837408f15056a456bddb29\transformed\out"
+      folder="E:\Application Development\nokri\node_modules\react-native-maps\android\build\.transforms\fec479ed3f70c2a01d87cbd292bec43b\transformed\out"
       manifest="AndroidManifest.xml"
       resFolder="res"
       assetsFolder="assets"
@@ -195,10 +195,10 @@
       externalAnnotations="annotations.zip"
       proguardRules="proguard.txt"/>
   <library
-      name="E:\Github\nokri\android@@:react-native-safe-area-context::release"
-      jars="E:\Github\nokri\node_modules\react-native-safe-area-context\android\build\.transforms\53795b810e9a53eefb0017c239c5d4d0\transformed\out\jars\classes.jar"
+      name="E:\Application Development\nokri\android@@:react-native-safe-area-context::release"
+      jars="E:\Application Development\nokri\node_modules\react-native-safe-area-context\android\build\.transforms\59226daed1fb3969438359d212a4f464\transformed\out\jars\classes.jar"
       resolved="nokri:react-native-safe-area-context:unspecified"
-      folder="E:\Github\nokri\node_modules\react-native-safe-area-context\android\build\.transforms\53795b810e9a53eefb0017c239c5d4d0\transformed\out"
+      folder="E:\Application Development\nokri\node_modules\react-native-safe-area-context\android\build\.transforms\59226daed1fb3969438359d212a4f464\transformed\out"
       manifest="AndroidManifest.xml"
       resFolder="res"
       assetsFolder="assets"
@@ -208,10 +208,10 @@
       externalAnnotations="annotations.zip"
       proguardRules="proguard.txt"/>
   <library
-      name="E:\Github\nokri\android@@:react-native-screens::release"
-      jars="E:\Github\nokri\node_modules\react-native-screens\android\build\.transforms\74223291708338da7ddec4e75421ec9c\transformed\out\jars\classes.jar"
+      name="E:\Application Development\nokri\android@@:react-native-screens::release"
+      jars="E:\Application Development\nokri\node_modules\react-native-screens\android\build\.transforms\725cbaac708432d9a3b4ff4aaab3563c\transformed\out\jars\classes.jar"
       resolved="nokri:react-native-screens:unspecified"
-      folder="E:\Github\nokri\node_modules\react-native-screens\android\build\.transforms\74223291708338da7ddec4e75421ec9c\transformed\out"
+      folder="E:\Application Development\nokri\node_modules\react-native-screens\android\build\.transforms\725cbaac708432d9a3b4ff4aaab3563c\transformed\out"
       manifest="AndroidManifest.xml"
       resFolder="res"
       assetsFolder="assets"
@@ -1386,9 +1386,9 @@
       proguardRules="proguard.txt"/>
   <library
       name="com.google.maps.android:android-maps-utils:0.5@aar"
-      jars="C:\Users\Shahbaz Ali\.gradle\caches\transforms-3\75b24cdd45fc59eba85547a9d67b4024\transformed\jetified-android-maps-utils-0.5\jars\classes.jar"
+      jars="C:\Users\Shahbaz Ali\.gradle\caches\transforms-3\fb9cb388c98eac4fff80470a1abc6c4c\transformed\jetified-android-maps-utils-0.5\jars\classes.jar"
       resolved="com.google.maps.android:android-maps-utils:0.5"
-      folder="C:\Users\Shahbaz Ali\.gradle\caches\transforms-3\75b24cdd45fc59eba85547a9d67b4024\transformed\jetified-android-maps-utils-0.5"
+      folder="C:\Users\Shahbaz Ali\.gradle\caches\transforms-3\fb9cb388c98eac4fff80470a1abc6c4c\transformed\jetified-android-maps-utils-0.5"
       manifest="AndroidManifest.xml"
       resFolder="res"
       assetsFolder="assets"
